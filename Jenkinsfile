@@ -11,5 +11,10 @@ pipeline {
         sh 'python3 hello_world.py'
       }
     }
+    stage('Install Dependencies') {
+      steps {
+        sh 'pip3 install -r requirements.txt'
+      }
+    }
   }
 }
