@@ -1,17 +1,20 @@
 pipeline {
   agent any
+
   stages {
-    stage('version') {
+    stage('Version') {
       steps {
         sh 'python3 --version'
       }
     }
+
     stage('Install Dependencies') {
       steps {
-        sh 'pip3 install -r requirements.txt'
+        sh 'pip3 install --only-binary :all: -r requirements.txt'
       }
     }
-    stage('hello') {
+
+    stage('Hello') {
       steps {
         sh 'python3 hello_world.py'
       }
